@@ -76,7 +76,7 @@ export default {
           this.submitted = true;
           setTimeout(() => {
             this.resetForm();
-          }, 5000); // Reset after 5 seconds
+          }, 5000);
         } else {
           alert("Error submitting form.");
         }
@@ -103,7 +103,6 @@ export default {
   align-items: center;
   height: 100vh;
   padding: 20px;
-  flex-direction: column;
 }
 
 form {
@@ -113,6 +112,7 @@ form {
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease, padding 0.3s ease;
 }
 
 form div {
@@ -122,24 +122,27 @@ form div {
 label {
   display: block;
   margin-bottom: 5px;
+  font-size: 16px;
 }
 
 input {
   width: 100%;
-  padding: 8px;
+  padding: 8px 0px;
   margin-top: 5px;
   border-radius: 4px;
   border: 1px solid #ccc;
+  font-size: 14px;
 }
 
 button {
-  padding: 10px 15px;
+  padding: 12px 15px;
   background-color: #007bff;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 4px;
   width: 100%;
+  font-size: 16px;
 }
 
 button:hover {
@@ -147,22 +150,39 @@ button:hover {
 }
 
 .thank-you-message {
-  font-size: 18px;
+  margin-top: 20px;
   color: green;
   text-align: center;
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  font-size: 18px;
 }
 
-form {
-  display: block;
-}
+/* Adjust parameters for 393 x 852 resolution */
+@media (max-width: 393px) and (max-height: 852px) {
+  .about {
+    padding: 10px;
+  }
 
-form.v-enter,
-.form.v-leave {
-  display: none;
+  form {
+    max-width: 100%;
+    padding: 15px 20px;
+    box-shadow: none;
+  }
+
+  input,
+  button {
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 14px;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  .thank-you-message {
+    font-size: 16px;
+  }
 }
 </style>
