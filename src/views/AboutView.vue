@@ -3,10 +3,15 @@
     <h1></h1>
 
     <div v-if="submitted" class="thank-you-message">
-      <p>Thank you!</p>
+      <p>Thank you</p>
+      <p>We will contact you shortly</p>
     </div>
 
     <form v-else @submit.prevent="submitForm">
+      <div>
+        <h1>Have us reach out</h1>
+      </div>
+
       <div>
         <label for="first">First Name</label>
         <input type="text" id="first" v-model="form.first" required />
@@ -32,7 +37,7 @@
         <input type="email" id="email" v-model="form.email" required />
       </div>
 
-      <button type="submit">Submit</button>
+      <button type="submit">Continue</button>
     </form>
   </div>
 </template>
@@ -123,6 +128,7 @@ label {
   display: block;
   margin-bottom: 5px;
   font-size: 16px;
+  color: green;
 }
 
 input {
@@ -135,23 +141,31 @@ input {
 }
 
 button {
-  padding: 12px 15px;
-  background-color: #007bff;
+  padding: 12px 20px;
+  background-color: rgb(5, 62, 122);
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 4px;
-  width: 100%;
   font-size: 16px;
+  width: auto;
+  display: block;
+  margin-left: auto;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
+h1 {
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: 20px;
+  color: gray;
+}
+
 .thank-you-message {
   margin-top: 20px;
-  color: green;
   text-align: center;
   font-size: 18px;
 }
@@ -160,6 +174,7 @@ button:hover {
 @media (max-width: 393px) and (max-height: 852px) {
   .about {
     padding: 10px;
+    font-family: "Arial", sans-serif;
   }
 
   form {
@@ -179,10 +194,12 @@ button:hover {
     word-wrap: break-word;
     word-break: break-word;
     white-space: normal;
+    color: green;
   }
 
   .thank-you-message {
     font-size: 16px;
+    color: gray;
   }
 }
 </style>
